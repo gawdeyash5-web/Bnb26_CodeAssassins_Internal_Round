@@ -1,14 +1,18 @@
 """Diagnosis module for classifying student answers and identifying misconceptions.
 
+Owner: Member 1 (ML Model Development)
+Branch: member-1-ml
+
 This module fulfills the Member 1 interface contract:
-    diagnose(question: str, student_answer: str) -> dict
+    diagnose(question: str, student_answer: str, model_path: str) -> dict
 """
 
 import os
-from typing import Any, Dict, Optional
+from typing import Any, Dict
 import joblib
 
 DEFAULT_MODEL_PATH = os.path.join("models", "misconception_classifier.joblib")
+CONFIDENCE_THRESHOLD = 0.60
 
 
 def diagnose(
@@ -31,60 +35,83 @@ def diagnose(
     -------
     dict
         A dictionary containing:
-            - misconception_label (str): Identified misconception category or 'no_misconception_detected'.
-            - confidence_score (float): Confidence score between 0.0 and 1.0.
+            - misconception_label (str): Identified misconception category or contract label.
+            - confidence_score (float): Probability estimate between 0.0 and 1.0.
             - model_version (str): Identifier/version of the diagnostic model.
             - status (str): 'success', 'uncertain', or 'fallback'.
-            - explanation (str): Diagnostic description of the finding.
+            - explanation (str): Human-readable diagnosis commentary.
     """
-    cleaned_question = (question or "").strip()
-    cleaned_answer = (student_answer or "").strip()
+    # Defensive input validation
+    if question is None or not isinstance(question, str):
+        cleaned_question = ""
+    else:
+        cleaned_question = question.strip()
 
+    if student_answer is None or not isinstance(student_answer, str):
+        cleaned_answer = ""
+    else:
+        cleaned_answer = student_answer.strip()
+
+    # Handle empty answer according to contract
     if not cleaned_answer:
         return {
             "misconception_label": "empty_answer",
             "confidence_score": 0.0,
             "model_version": "baseline-0.1.0",
             "status": "fallback",
-            "explanation": "No answer was provided by the student."
+            "explanation": "No valid answer was provided by the student."
         }
 
-    # Attempt to load trained scikit-learn pipeline if available
-    if os.path.exists(model_path):
-        try:
-            pipeline = joblib.load(model_path)
-            # Combine question and answer text for context-aware classification
-            input_text = f"Question: {cleaned_question} Answer: {cleaned_answer}"
-            prediction = pipeline.predict([input_text])[0]
+    # Verify model artifact existence
+    if not os.path.exists(model_path):
+        return {
+            "misconception_label": "pending_model_training",
+            "confidence_score": 0.0,
+            "model_version": "baseline-stub-0.1.0",
+            "status": "fallback",
+            "explanation": f"Trained model artifact not found at '{model_path}'. Using baseline stub."
+        }
 
-            confidence = 1.0
-            if hasattr(pipeline, "predict_proba"):
-                probabilities = pipeline.predict_proba([input_text])[0]
-                confidence = float(max(probabilities))
+    # Attempt inference with trained pipeline
+    try:
+        pipeline = joblib.load(model_path)
+        input_text = f"Question: {cleaned_question} Answer: {cleaned_answer}"
 
-            status = "success" if confidence >= 0.60 else "uncertain"
+        prediction = pipeline.predict([input_text])[0]
 
-            return {
-                "misconception_label": str(prediction),
-                "confidence_score": round(confidence, 4),
-                "model_version": "trained-pipeline-1.0",
-                "status": status,
-                "explanation": f"Classified with {confidence * 100:.1f}% confidence."
-            }
-        except Exception as exc:
-            return {
-                "misconception_label": "model_inference_error",
-                "confidence_score": 0.0,
-                "model_version": "error-fallback",
-                "status": "fallback",
-                "explanation": f"Failed to infer from model: {str(exc)}"
-            }
+        confidence = 1.0
+        if hasattr(pipeline, "predict_proba"):
+            probabilities = pipeline.predict_proba([input_text])[0]
+            confidence = float(max(probabilities))
 
-    # Baseline stub until Member 1 completes model training
-    return {
-        "misconception_label": "pending_model_training",
-        "confidence_score": 0.50,
-        "model_version": "baseline-stub-0.1.0",
-        "status": "fallback",
-        "explanation": "Trained model artifact not yet found at models/misconception_classifier.joblib. Using baseline stub."
-    }
+        rounded_confidence = round(confidence, 4)
+
+        if confidence >= CONFIDENCE_THRESHOLD:
+            status = "success"
+            explanation = (
+                f"Classified with {rounded_confidence * 100:.1f}% estimated probability. "
+                "Note: Statistical ML estimate, pedagogical verification recommended."
+            )
+        else:
+            status = "uncertain"
+            explanation = (
+                f"Low confidence diagnosis ({rounded_confidence * 100:.1f}%, below {CONFIDENCE_THRESHOLD * 100:.0f}% threshold). "
+                "Student reasoning may be ambiguous or outside model training distribution."
+            )
+
+        return {
+            "misconception_label": str(prediction),
+            "confidence_score": rounded_confidence,
+            "model_version": "trained-pipeline-1.0",
+            "status": status,
+            "explanation": explanation
+        }
+
+    except Exception as exc:
+        return {
+            "misconception_label": "model_inference_error",
+            "confidence_score": 0.0,
+            "model_version": "error-fallback",
+            "status": "fallback",
+            "explanation": f"Failed to infer from model: {str(exc)}"
+        }
