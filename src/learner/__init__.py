@@ -83,3 +83,31 @@ def clear_learner_history(learner_id: Optional[str] = None) -> None:
         _LEARNER_HISTORY_STORE.pop(learner_id, None)
     else:
         _LEARNER_HISTORY_STORE.clear()
+
+
+def update_attempt_reassessment(
+    learner_id: str,
+    attempt_index: int,
+    reassessment_completed: bool,
+    reassessment_outcome: str,
+    reassessment_answer: str = "",
+    reassessment_feedback: str = ""
+) -> Dict[str, Any]:
+    """Update an existing attempt with reassessment information."""
+    if learner_id not in _LEARNER_HISTORY_STORE:
+        return {}
+    
+    history = _LEARNER_HISTORY_STORE[learner_id]
+    if attempt_index < 0 or attempt_index >= len(history):
+        return {}
+        
+    attempt = history[attempt_index]
+    attempt["reassessment_completed"] = reassessment_completed
+    attempt["reassessment_outcome"] = reassessment_outcome
+    attempt["reassessment_answer"] = reassessment_answer
+    attempt["reassessment_feedback"] = reassessment_feedback
+    
+    return attempt
+
+
+
