@@ -75,26 +75,26 @@ with col2:
     st.subheader("2. AI Diagnosis & Intervention")
 
     if submit_button:
-        if not student_answer.strip():
+        with st.spinner("Analyzing response against misconception models..."):
+            diag_result = diagnose(active_question, student_answer)
+            misconception = diag_result.get("misconception_label", "unknown")
+            confidence = diag_result.get("confidence_score", 0.0)
+            status = diag_result.get("status", "unknown")
+
+            intervention = get_intervention(misconception)
+
+            # Record attempt via Member 4 module
+            record_attempt(
+                learner_id=st.session_state.learner_id,
+                question=active_question,
+                student_answer=student_answer,
+                diagnosis=diag_result,
+                intervention=intervention
+            )
+
+        if misconception == "empty_answer":
             st.warning("Please provide a student answer to diagnose.")
         else:
-            with st.spinner("Analyzing response against misconception models..."):
-                diag_result = diagnose(active_question, student_answer)
-                misconception = diag_result.get("misconception_label", "unknown")
-                confidence = diag_result.get("confidence_score", 0.0)
-                status = diag_result.get("status", "unknown")
-
-                intervention = get_intervention(misconception)
-
-                # Record attempt via Member 4 module
-                record_attempt(
-                    learner_id=st.session_state.learner_id,
-                    question=active_question,
-                    student_answer=student_answer,
-                    diagnosis=diag_result,
-                    intervention=intervention
-                )
-
             # Display Diagnosis Status
             if status == "success":
                 st.success(f"**Identified Misconception:** `{misconception}` (Confidence: {confidence * 100:.1f}%)")

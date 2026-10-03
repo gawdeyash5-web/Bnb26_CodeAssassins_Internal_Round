@@ -1,4 +1,5 @@
 import pytest
+from src.ml.diagnose import diagnose
 from src.interventions import get_intervention
 from src.learner import record_attempt, get_learner_history, clear_learner_history
 
@@ -89,4 +90,41 @@ def test_integration_flow_unknown_misconception():
     assert attempt["question"] == question
     assert attempt["student_answer"] == student_answer
     assert attempt["misconception_label"] == "dancing_object_syndrome"
+    assert attempt["intervention_title"] == intervention["title"]
+
+
+def test_integration_flow_empty_answer():
+    """3. Test that the integration pipeline correctly handles an empty student answer end-to-end."""
+    learner_id = "test_learner_empty"
+    question = "What is gravity?"
+    student_answer = "   "
+    
+    # 1. diagnose() receives the empty answer
+    diagnosis = diagnose(question, student_answer)
+    
+    # 2. It returns misconception_label="empty_answer" and status="fallback"
+    assert diagnosis["misconception_label"] == "empty_answer"
+    assert diagnosis["status"] == "fallback"
+    
+    # 3. get_intervention() processes that label without crashing
+    intervention = get_intervention(diagnosis["misconception_label"])
+    assert intervention["status"] == "fallback"
+    
+    # 4. record_attempt() can record the resulting attempt
+    record_attempt(
+        learner_id=learner_id,
+        question=question,
+        student_answer=student_answer,
+        diagnosis=diagnosis,
+        intervention=intervention
+    )
+    
+    # 5. The attempt appears in learner history
+    history = get_learner_history(learner_id)
+    assert len(history) == 1
+    
+    attempt = history[0]
+    assert attempt["question"] == question
+    assert attempt["student_answer"] == student_answer
+    assert attempt["misconception_label"] == "empty_answer"
     assert attempt["intervention_title"] == intervention["title"]
