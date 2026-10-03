@@ -51,6 +51,7 @@ data/*
 !data/.gitkeep
 !data/README.md
 *.csv
+!tests/fixtures/*.csv
 *.tsv
 *.parquet
 *.feather
