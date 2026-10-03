@@ -1,0 +1,102 @@
+[
+  {
+    "simple_description": "The student thinks an object only keeps moving if something keeps pushing it in the direction it is going.",
+    "scientifically_correct_concept": "An object keeps its velocity (same speed, same direction) unless a net force acts on it. A net force is needed to CHANGE velocity (a = F_net / m), not to maintain it. Objects slow down on Earth because friction and air resistance are forces.",
+    "common_reasoning_error": "Everyday objects stop when we stop pushing, so the student concludes that motion needs a continuous force. They overlook friction and air resistance, or imagine a force is 'stored' in a moving object (the impetus idea).",
+    "example": "A puck on frictionless ice moves at constant velocity: the net force is 0 N, yet it keeps moving.",
+    "misconception_id": "M1",
+    "misconception_name": "Force required for motion",
+    "simple_intervention": "A force is needed to CHANGE how something moves (speed up, slow down, turn), not to KEEP it moving. If nothing pushes or pulls it, an object keeps moving at the same velocity.",
+    "real_life_analogy": "A skater gliding on smooth ice after one push does not need anyone pushing her every second. On a rough road she would stop because the road drags her backward.",
+    "follow_up_questions": [
+      "A cyclist stops pedalling and freewheels along a level road. She slowly slows down. Why does she slow down, and what would happen if there were no friction or air resistance?",
+      "True or false: 'If an object is moving, a force must be acting on it in the direction of its motion.' Give an example that supports your answer.",
+      "A 0.5 kg puck on frictionless ice is pushed with a constant 5 N force for 2 s, then the force is removed. Describe its motion after the force is removed."
+    ],
+    "follow_up_answers": [
+      "She slows because friction and air resistance act backward on her, giving a backward net force. With no resistive forces nothing would change her velocity, so she would keep going at the same speed.",
+      "False. Example: a puck gliding on frictionless ice, or a ball rising after being thrown (only gravity acts, and it points down). A net force is needed to change velocity, not to keep it.",
+      "During the push a = 5 / 0.5 = 10 m/s², so after 2 s the speed is 20 m/s. After the force is removed no net force acts, so it keeps moving at a constant 20 m/s in a straight line."
+    ]
+  },
+  {
+    "simple_description": "The student thinks that if the forces on an object balance (net force is zero), the object must be at rest.",
+    "scientifically_correct_concept": "Zero net force means zero acceleration. The velocity stays constant: the object is either at rest or moving in a straight line at constant speed (Newton's first law).",
+    "common_reasoning_error": "The student treats 'balanced' or 'cancelled' as 'nothing happening', mixing up 'velocity is zero' with 'velocity is not changing'.",
+    "example": "A skydiver at terminal velocity: weight = air resistance, net force 0 N, but she falls at a constant speed.",
+    "misconception_id": "M2",
+    "misconception_name": "Zero net force means zero velocity",
+    "simple_intervention": "Zero net force means zero ACCELERATION (the velocity does not change). The object can be at rest OR moving at constant velocity.",
+    "real_life_analogy": "A car on cruise control: the engine force balances the resistance and the speedometer stays at one value. The forces are balanced, but the car is definitely moving.",
+    "follow_up_questions": [
+      "A hot-air balloon rises at a steady 2 m/s. How does the upward lift compare with the balloon's weight, and what is the net force?",
+      "True or false: 'An object at rest has zero net force, so an object with zero net force must be at rest.' Explain.",
+      "A ball bearing falls through thick syrup at a steady 0.2 m/s. Its weight is 0.5 N (ignore buoyancy). What is the drag force on it, and what is the net force?"
+    ],
+    "follow_up_answers": [
+      "The lift equals the weight, so the net force is 0 N. The balloon is still moving upward at a constant 2 m/s.",
+      "The first half is true. The second half is false: an object moving at constant velocity also has zero net force.",
+      "Drag is 0.5 N upward and the net force is 0 N. The ball keeps falling at 0.2 m/s because zero net force means constant velocity, not zero velocity."
+    ]
+  },
+  {
+    "simple_description": "The student thinks the two forces in a Newton's third-law pair cancel each other, so nothing can move.",
+    "scientifically_correct_concept": "The forces in a third-law pair are equal in size and opposite in direction, but they act on two DIFFERENT objects. Only forces acting on the same object can cancel. Each object's motion depends on the net force on that object alone.",
+    "common_reasoning_error": "The student adds up all forces in a situation without asking which object each force acts on.",
+    "example": "A swimmer pushes the pool wall; the wall pushes the swimmer with an equal force. The swimmer accelerates because the wall's force acts on the swimmer.",
+    "misconception_id": "M3",
+    "misconception_name": "Action-reaction forces cancel each other",
+    "simple_intervention": "The two forces in an action-reaction pair are equal and opposite, but they act on DIFFERENT objects. Forces on different objects cannot cancel each other.",
+    "real_life_analogy": "Two friends on skateboards push each other. Each gets pushed away. If the pair of forces cancelled, neither of them would roll.",
+    "follow_up_questions": [
+      "A student says: 'A rocket's exhaust pushes the rocket forward and the rocket pushes the exhaust backward with an equal force, so they cancel and the rocket cannot speed up.' What is wrong with this?",
+      "Two carts (1 kg and 3 kg) on a frictionless track attract each other with magnets. The magnetic force on the 1 kg cart is 6 N. What is the force on the 3 kg cart, and what is each cart's acceleration?",
+      "You stand on a skateboard and throw a heavy ball forward. Why do you roll backward? Which force acts on you?"
+    ],
+    "follow_up_answers": [
+      "The two forces act on different objects: the gas feels one and the rocket feels the other. Only the force on the rocket matters for the rocket's motion, and it is not balanced by the force on the gas, so the rocket accelerates.",
+      "The force on the 3 kg cart is also 6 N, in the opposite direction. Accelerations: 6 / 1 = 6 m/s² for the 1 kg cart and 6 / 3 = 2 m/s² for the 3 kg cart, each toward the other.",
+      "You push the ball forward and the ball pushes you backward with an equal force. That backward force acts on you and nothing balances it, so you accelerate backward."
+    ]
+  },
+  {
+    "simple_description": "The student thinks heavier objects fall faster than lighter ones.",
+    "scientifically_correct_concept": "Ignoring air resistance, all objects near Earth's surface fall with the same acceleration g (about 9.8 m/s²), whatever their mass. The bigger weight of a heavy object is matched by its bigger mass: a = mg / m = g.",
+    "common_reasoning_error": "The student sees that gravity pulls harder on a heavy object but forgets the heavy object is also harder to accelerate, or blames mass for effects that really come from air resistance.",
+    "example": "Two balls of 1 kg and 5 kg dropped together in a vacuum hit the ground at the same time.",
+    "misconception_id": "M4",
+    "misconception_name": "Heavier objects fall faster",
+    "simple_intervention": "Without air resistance, all objects fall with the same acceleration (g = 9.8 m/s² near Earth's surface), no matter their mass.",
+    "real_life_analogy": "A big truck with a big engine and a small car with a small engine can accelerate equally if engine size is in proportion to mass. Gravity acts like an engine whose power is proportional to the object's mass.",
+    "follow_up_questions": [
+      "Gravity pulls ten times harder on a 10 kg object than on a 1 kg object. Why doesn't the 10 kg object fall ten times faster?",
+      "A 1 kg and a 4 kg object are dropped from rest in a vacuum near Earth's surface (g = 9.8 m/s²). What is the speed of each after 2 s?",
+      "A flat sheet of paper and the same sheet crumpled into a ball are dropped together. The ball lands first. Both have the same weight. Why?"
+    ],
+    "follow_up_answers": [
+      "Because it also has ten times the mass, so it is ten times harder to accelerate. a = F / m = (10 x 9.8) / 10 = 9.8 m/s², the same as the 1 kg object.",
+      "Both are 19.6 m/s (v = g x t = 9.8 x 2).",
+      "Air resistance is larger on the flat sheet because it has more area, so its net downward force is smaller. The weight is the same; the difference comes from air resistance, not from mass."
+    ]
+  },
+  {
+    "simple_description": "The student treats force and acceleration as the same thing, or uses their words and units interchangeably.",
+    "scientifically_correct_concept": "Force (newtons) is a push or pull. Acceleration (m/s²) is the rate of change of velocity. A net force causes acceleration according to F_net = m x a, so the same force gives different accelerations to different masses.",
+    "common_reasoning_error": "Because force and acceleration go together in everyday talk ('a big push makes it speed up'), the student merges them and ignores mass.",
+    "example": "The same 20 N net force gives a 2 kg cart 10 m/s² but a 10 kg cart only 2 m/s².",
+    "misconception_id": "M5",
+    "misconception_name": "Force and acceleration are the same thing",
+    "simple_intervention": "Force is a push or pull (newtons). Acceleration is how fast velocity changes (m/s²). They are linked by a = F / m but they are different things: the same force gives different accelerations to different masses.",
+    "real_life_analogy": "Push an empty shopping cart and a full one with the same effort: same push (force), but the empty cart speeds up much faster.",
+    "follow_up_questions": [
+      "A net force acts on a cart. If the mass of the cart is doubled but the net force stays the same, what happens to its acceleration?",
+      "The net force on an object is 12 N and its acceleration is 4 m/s². What is its mass?",
+      "A 0.1 kg tennis ball has an acceleration of 100 m/s². A 1000 kg car has an acceleration of 0.1 m/s². Which has the larger net force?"
+    ],
+    "follow_up_answers": [
+      "The acceleration halves (a = F / m).",
+      "3 kg (m = F / a = 12 / 4).",
+      "Ball: F = 0.1 x 100 = 10 N. Car: F = 1000 x 0.1 = 100 N. The car has the larger net force even though its acceleration is much smaller."
+    ]
+  }
+]

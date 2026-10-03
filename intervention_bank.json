@@ -1,0 +1,62 @@
+[
+  {
+    "misconception_id": "M1",
+    "misconception_name": "Force required for motion",
+    "short_explanation": "A force is needed to CHANGE how something moves (speed up, slow down, turn), not to KEEP it moving. If nothing pushes or pulls it, an object keeps moving at the same velocity.",
+    "detailed_explanation": "Things around us usually stop because friction and air resistance act on them, not because their motion 'runs out'. Where friction is tiny (ice, space) objects keep going. So when something moves at steady speed, the forces on it are balanced (net force = 0). A forward push may still be there, but it is only cancelling friction or drag. Force is linked to CHANGE in velocity (acceleration), not to velocity itself.",
+    "common_mistake": "Saying 'it's moving, so there must be a force pushing it forward'.",
+    "real_life_analogy": "A skater gliding on smooth ice after one push does not need anyone pushing her every second. On a rough road she would stop because the road drags her backward.",
+    "worked_example": "A 1000 kg car cruises at a steady 20 m/s. Air drag + friction = 500 N backward. Step 1: steady speed -> acceleration 0 -> net force 0. Step 2: so the engine must give 500 N forward to cancel the 500 N backward. Net = 500 - 500 = 0 N. Step 3: if there were no drag or friction, the engine force needed would be 0 N.",
+    "hint": "Ask yourself: is the velocity changing? If not, the net force is zero.",
+    "follow_up_question": "A spacecraft coasts through empty space with its engines off. What is its velocity doing, and why?",
+    "follow_up_answer": "Its velocity stays constant, because no net force acts on it."
+  },
+  {
+    "misconception_id": "M2",
+    "misconception_name": "Zero net force means zero velocity",
+    "short_explanation": "Zero net force means zero ACCELERATION (the velocity does not change). The object can be at rest OR moving at constant velocity.",
+    "detailed_explanation": "Newton's first law has two halves: an object at rest stays at rest, and an object moving stays moving at the same velocity, as long as the forces on it are balanced. Balanced forces do not stop an object; they stop its velocity from CHANGING. 'Balanced' does not mean 'stopped'. To know which case you have, look at how the object was moving to begin with.",
+    "common_mistake": "Saying 'the forces cancel, so it stops' or 'so it isn't moving'.",
+    "real_life_analogy": "A car on cruise control: the engine force balances the resistance and the speedometer stays at one value. The forces are balanced, but the car is definitely moving.",
+    "worked_example": "A 500 kg lift moves upward at a constant 1.5 m/s. Weight = 500 x 9.8 = 4900 N. Step 1: constant velocity -> net force 0. Step 2: so the cable tension is 4900 N, equal to the weight. Step 3: the lift is still moving; in 4 s it rises 1.5 x 4 = 6 m.",
+    "hint": "Balanced forces change nothing about the velocity. Was the object moving at the start?",
+    "follow_up_question": "A hot-air balloon rises at a steady 2 m/s. How does the lift compare with the weight?",
+    "follow_up_answer": "They are equal, so the net force is 0 N. The balloon keeps rising at 2 m/s."
+  },
+  {
+    "misconception_id": "M3",
+    "misconception_name": "Action-reaction forces cancel each other",
+    "short_explanation": "The two forces in an action-reaction pair are equal and opposite, but they act on DIFFERENT objects. Forces on different objects cannot cancel each other.",
+    "detailed_explanation": "To decide whether forces cancel, only add up the forces acting on ONE object. When you push a wall, your push acts on the wall and the wall's push acts on you. For you, only the wall's push counts; for the wall, only your push counts. Each object then has its own net force and its own acceleration (a = F / m). Forces that DO cancel (balanced forces) act on the same object.",
+    "common_mistake": "Adding the action force and the reaction force to get zero, when the question is about only one of the objects.",
+    "real_life_analogy": "Two friends on skateboards push each other. Each gets pushed away. If the pair of forces cancelled, neither of them would roll.",
+    "worked_example": "A 40 kg student on skates pushes a 60 kg friend with 80 N on smooth ice. Step 1: the friend feels 80 N forward, so a = 80 / 60 = 1.33 m/s². Step 2: the student feels 80 N backward, so a = 80 / 40 = 2 m/s². Step 3: the forces do not cancel because they act on different people.",
+    "hint": "For each force, write down which object it acts on. Only add forces that act on the same object.",
+    "follow_up_question": "A student says a rocket's exhaust pushes on the rocket and the rocket pushes on the exhaust, so the forces cancel and the rocket can't speed up. What is wrong?",
+    "follow_up_answer": "The two forces act on different objects (rocket and gas), so they cannot cancel. The force on the rocket is what accelerates the rocket."
+  },
+  {
+    "misconception_id": "M4",
+    "misconception_name": "Heavier objects fall faster",
+    "short_explanation": "Without air resistance, all objects fall with the same acceleration (g = 9.8 m/s² near Earth's surface), no matter their mass.",
+    "detailed_explanation": "A heavier object has a bigger weight (W = mg), so gravity pulls harder on it. But it also has more mass, so it is harder to accelerate. The two effects match exactly: a = F / m = mg / m = g. In air, a feather falls slowly because of air resistance, not because it is lighter.",
+    "common_mistake": "Looking only at the bigger pull of gravity and forgetting the bigger mass (inertia).",
+    "real_life_analogy": "A big truck with a big engine and a small car with a small engine can accelerate equally if engine size is in proportion to mass. Gravity acts like an engine whose power is proportional to the object's mass.",
+    "worked_example": "Drop a 2 kg rock and an 8 kg rock in a vacuum. Weights: 2 x 9.8 = 19.6 N and 8 x 9.8 = 78.4 N. Accelerations: 19.6 / 2 = 9.8 m/s² and 78.4 / 8 = 9.8 m/s². Same acceleration, so they land together.",
+    "hint": "Compare the force AND the mass: a = F / m. What happens to mg / m?",
+    "follow_up_question": "A 3 kg and a 12 kg object are dropped in a vacuum. What is the speed of each after 1.5 s? (g = 9.8 m/s²)",
+    "follow_up_answer": "Both are 14.7 m/s (9.8 x 1.5)."
+  },
+  {
+    "misconception_id": "M5",
+    "misconception_name": "Force and acceleration are the same thing",
+    "short_explanation": "Force is a push or pull (newtons). Acceleration is how fast velocity changes (m/s²). They are linked by a = F / m but they are different things: the same force gives different accelerations to different masses.",
+    "detailed_explanation": "Force is the cause; acceleration is the effect. Newton's second law says net force = mass x acceleration. So with the same force a light object accelerates more than a heavy one. Force cannot be measured in m/s² and acceleration cannot be measured in newtons. Acceleration is not a force and never appears as an arrow on a free-body diagram.",
+    "common_mistake": "Saying 'the force is 3 m/s²' or 'the same force always gives the same acceleration'.",
+    "real_life_analogy": "Push an empty shopping cart and a full one with the same effort: same push (force), but the empty cart speeds up much faster.",
+    "worked_example": "A 10 kg box gets a net force of 30 N. a = F / m = 30 / 10 = 3 m/s². If the box were 5 kg: a = 30 / 5 = 6 m/s². Same force, different acceleration.",
+    "hint": "Check the units. Newtons are for force, m/s² for acceleration. What quantity connects them?",
+    "follow_up_question": "A 4 kg object accelerates at 2.5 m/s². What is the net force on it?",
+    "follow_up_answer": "10 N (F = ma = 4 x 2.5)."
+  }
+]

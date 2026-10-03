@@ -1,0 +1,64 @@
+{
+  "statuses": [
+    "not_assessed",
+    "diagnosed",
+    "intervened",
+    "tentatively_resolved",
+    "appears_resolved",
+    "further_assessment_recommended",
+    "may_still_be_present"
+  ],
+  "status_messages": {
+    "appears_resolved": "Misconception appears resolved.",
+    "tentatively_resolved": "Good progress - one more check recommended.",
+    "further_assessment_recommended": "Further assessment recommended.",
+    "may_still_be_present": "Misconception may still be present."
+  },
+  "diagnosis_confidence_threshold": 0.6,
+  "max_reassessment_attempts_per_misconception_per_session": 3,
+  "rules": [
+    "R1: Only start an intervention if the classifier's confidence >= 0.6. Below that, ask one clarifying probe question instead.",
+    "R2: After the short intervention, ask ONE fresh reassessment question for the same misconception (Easy or Medium).",
+    "R3: If it is correct (and for multiple-choice the student gave a one-line reason, or the answer was numerical/written), status = tentatively_resolved. Ask a SECOND fresh question (Medium or Hard, different situation).",
+    "R4: If the second question is also correct, status = appears_resolved. Schedule one delayed re-check later (next session or after at least 3 other questions).",
+    "R5: If the first reassessment answer is wrong, show the detailed explanation + worked example + hint, then ask a fresh question.",
+    "R6: If that is correct, status = further_assessment_recommended (not resolved yet); ask one more. If correct, status = appears_resolved.",
+    "R7: If two reassessment answers in a row are wrong, status = may_still_be_present. Stop the automatic loop and suggest a teacher or tutor.",
+    "R8: Never reuse a question already shown to this learner. Never reuse the original training question as the reassessment question.",
+    "R9: If the new wrong answer matches a DIFFERENT misconception, log the new misconception and do not count it as a failure for the old one.",
+    "R10: A single correct answer is never proof of learning. Wording shown to the learner must be tentative ('appears resolved')."
+  ],
+  "learner_history_example": {
+    "learner_id": "demo_student_1",
+    "events": [
+      {
+        "step": 1,
+        "type": "diagnosis",
+        "question_id": "Q012",
+        "predicted_misconception_id": "M2",
+        "confidence": 0.78
+      },
+      {
+        "step": 2,
+        "type": "intervention",
+        "misconception_id": "M2",
+        "level": "short"
+      },
+      {
+        "step": 3,
+        "type": "reassessment",
+        "reassessment_id": "R-M2-02",
+        "correct": true
+      },
+      {
+        "step": 4,
+        "type": "reassessment",
+        "reassessment_id": "R-M2-04",
+        "correct": true
+      }
+    ],
+    "misconception_status": {
+      "M2": "appears_resolved"
+    }
+  }
+}
