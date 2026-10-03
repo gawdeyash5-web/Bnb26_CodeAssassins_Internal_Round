@@ -91,7 +91,8 @@ def update_attempt_reassessment(
     reassessment_completed: bool,
     reassessment_outcome: str,
     reassessment_answer: str = "",
-    reassessment_feedback: str = ""
+    reassessment_feedback: str = "",
+    reassessment_id: Optional[str] = None
 ) -> Dict[str, Any]:
     """Update an existing attempt with reassessment information."""
     if learner_id not in _LEARNER_HISTORY_STORE:
@@ -106,6 +107,8 @@ def update_attempt_reassessment(
     attempt["reassessment_outcome"] = reassessment_outcome
     attempt["reassessment_answer"] = reassessment_answer
     attempt["reassessment_feedback"] = reassessment_feedback
+    if reassessment_id is not None:
+        attempt["reassessment_id"] = reassessment_id
     
     return attempt
 
