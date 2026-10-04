@@ -5,6 +5,7 @@ Branch: member-1-ml
 
 This script defines the training pipeline using TF-IDF vectorization and
 Logistic Regression to classify student physics answers into misconception categories.
+Supports using data/split_assignments.csv when available for zero-leakage evaluation.
 """
 
 import argparse
@@ -12,14 +13,16 @@ import math
 import os
 from typing import Optional, Tuple
 import joblib
+import numpy as np
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import classification_report
+from sklearn.metrics import classification_report, confusion_matrix
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 
 DEFAULT_DATA_PATH = os.path.join("data", "physics_misconceptions.csv")
+DEFAULT_SPLIT_PATH = os.path.join("data", "split_assignments.csv")
 DEFAULT_MODEL_OUTPUT = os.path.join("models", "misconception_classifier.joblib")
 
 
@@ -36,18 +39,10 @@ def load_data(csv_path: str = DEFAULT_DATA_PATH) -> pd.DataFrame:
     pd.DataFrame
         Cleaned dataset containing at least 'question', 'student_answer',
         and 'misconception_label' with non-empty values.
-
-    Raises
-    ------
-    FileNotFoundError
-        If the dataset file does not exist at csv_path.
-    ValueError
-        If required columns are missing or no valid rows remain after cleaning.
     """
     if not os.path.exists(csv_path):
         raise FileNotFoundError(
-            f"Dataset not found at '{csv_path}'. Please ensure Member 2 has placed the dataset "
-            "or provide a valid development fixture."
+            f"Dataset not found at '{csv_path}'. Please ensure the dataset file exists."
         )
 
     df = pd.read_csv(csv_path)
@@ -101,7 +96,8 @@ def build_pipeline() -> Pipeline:
             LogisticRegression(
                 max_iter=1000,
                 class_weight="balanced",
-                random_state=42
+                random_state=42,
+                C=1.0
             )
         )
     ])
@@ -111,6 +107,7 @@ def build_pipeline() -> Pipeline:
 def train_and_evaluate(
     data_path: str = DEFAULT_DATA_PATH,
     model_output_path: Optional[str] = DEFAULT_MODEL_OUTPUT,
+    split_path: Optional[str] = DEFAULT_SPLIT_PATH,
     test_size: float = 0.20,
     random_state: int = 42
 ) -> Pipeline:
@@ -122,8 +119,10 @@ def train_and_evaluate(
         Input CSV path.
     model_output_path : str, optional
         Destination path for serialized .joblib artifact. If None, saving is skipped.
+    split_path : str, optional
+        Path to split_assignments.csv. If present and valid, uses prescribed splits.
     test_size : float
-        Fraction of data for testing.
+        Fraction of data for testing when split_path is not used.
     random_state : int
         Seed for reproducibility.
 
@@ -134,41 +133,60 @@ def train_and_evaluate(
     """
     df = load_data(data_path)
 
-    # Combine question and answer context
-    X = "Question: " + df["question"] + " Answer: " + df["student_answer"]
-    y = df["misconception_label"]
+    # Use official split if available and applicable
+    has_valid_splits = False
+    if split_path and os.path.exists(split_path) and "question_id" in df.columns:
+        try:
+            splits_df = pd.read_csv(split_path)
+            if "split" in splits_df.columns and "question_id" in splits_df.columns:
+                merged = pd.merge(df, splits_df[["question_id", "split"]], on="question_id", how="inner")
+                if len(merged) == len(df) and "train" in merged["split"].values:
+                    train_df = merged[merged["split"] == "train"]
+                    test_df = merged[merged["split"] == "test"]
+                    if not train_df.empty and not test_df.empty:
+                        has_valid_splits = True
+                        X_train = "Question: " + train_df["question"] + " Answer: " + train_df["student_answer"]
+                        y_train = train_df["misconception_label"]
+                        X_test = "Question: " + test_df["question"] + " Answer: " + test_df["student_answer"]
+                        y_test = test_df["misconception_label"]
+                        print(f"Using prescribed splits from '{split_path}': {len(train_df)} train, {len(test_df)} test.")
+        except Exception:
+            has_valid_splits = False
 
-    n_samples = len(df)
-    if n_samples < 2:
-        raise ValueError("Dataset requires at least 2 samples to perform training and evaluation.")
+    if not has_valid_splits:
+        X = "Question: " + df["question"] + " Answer: " + df["student_answer"]
+        y = df["misconception_label"]
 
-    # Calculate expected test/train counts to ensure valid stratification
-    class_counts = y.value_counts()
-    n_classes = len(class_counts)
-    
-    if isinstance(test_size, float):
-        n_test = int(math.ceil(test_size * n_samples)) if test_size < 1.0 else int(test_size)
-    else:
-        n_test = int(test_size)
-    n_train = n_samples - n_test
+        n_samples = len(df)
+        if n_samples < 2:
+            raise ValueError("Dataset requires at least 2 samples to perform training and evaluation.")
 
-    can_stratify = (
-        (class_counts.min() >= 2)
-        and (n_classes > 1)
-        and (n_train >= n_classes)
-        and (n_test >= n_classes)
-    )
+        class_counts = y.value_counts()
+        n_classes = len(class_counts)
 
-    X_train, X_test, y_train, y_test = train_test_split(
-        X,
-        y,
-        test_size=test_size,
-        random_state=random_state,
-        stratify=y if can_stratify else None
-    )
+        if isinstance(test_size, float):
+            n_test = int(math.ceil(test_size * n_samples)) if test_size < 1.0 else int(test_size)
+        else:
+            n_test = int(test_size)
+        n_train = n_samples - n_test
+
+        can_stratify = (
+            (class_counts.min() >= 2)
+            and (n_classes > 1)
+            and (n_train >= n_classes)
+            and (n_test >= n_classes)
+        )
+
+        X_train, X_test, y_train, y_test = train_test_split(
+            X,
+            y,
+            test_size=test_size,
+            random_state=random_state,
+            stratify=y if can_stratify else None
+        )
 
     pipeline = build_pipeline()
-    print(f"Training pipeline on {len(X_train)} samples across {y.nunique()} classes...")
+    print(f"Training pipeline on {len(X_train)} samples across {y_train.nunique()} classes...")
     pipeline.fit(X_train, y_train)
 
     # Evaluation
@@ -191,6 +209,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Train Re:Learn Misconception Classifier")
     parser.add_argument("--data", default=DEFAULT_DATA_PATH, help="Path to input CSV data")
     parser.add_argument("--output", default=DEFAULT_MODEL_OUTPUT, help="Path to output .joblib")
+    parser.add_argument("--splits", default=DEFAULT_SPLIT_PATH, help="Path to split_assignments.csv")
     parser.add_argument("--test-size", type=float, default=0.20, help="Fraction of data for testing")
     parser.add_argument("--seed", type=int, default=42, help="Random state seed")
     args = parser.parse_args()
@@ -199,6 +218,7 @@ if __name__ == "__main__":
         train_and_evaluate(
             data_path=args.data,
             model_output_path=args.output,
+            split_path=args.splits,
             test_size=args.test_size,
             random_state=args.seed
         )

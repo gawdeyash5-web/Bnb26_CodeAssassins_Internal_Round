@@ -1,0 +1,236 @@
+[
+  {
+    "reassessment_id": "R-M1-01",
+    "misconception_id": "M1",
+    "question": "A comet drifts through empty space, far from any star or planet. Is any force needed to keep it moving in a straight line at constant speed?",
+    "question_type": "Conceptual",
+    "difficulty": "Easy",
+    "correct_answer": "No. With no net force it keeps its velocity (Newton's first law).",
+    "why_this_tests_the_misconception": "New context with no friction cue. A student who still believes 'motion needs force' will say yes."
+  },
+  {
+    "reassessment_id": "R-M1-02",
+    "misconception_id": "M1",
+    "question": "A ball is kicked along a long, smooth, flat surface where friction is negligible. After it leaves the foot, which is true? (A) The kick force is gradually used up, so it slows. (B) It moves at constant velocity with no horizontal force acting. (C) It speeds up because of leftover kick force. (D) It needs a small push every second.",
+    "question_type": "Multiple-choice",
+    "difficulty": "Easy",
+    "correct_answer": "B",
+    "why_this_tests_the_misconception": "Each wrong option matches a known M1 variant: 'used up' (impetus), 'leftover force', 'needs continual push'."
+  },
+  {
+    "reassessment_id": "R-M1-03",
+    "misconception_id": "M1",
+    "question": "A sled glides at a steady 4 m/s across a frozen lake. Friction is negligible. A student draws a forward arrow labelled 'motion force' on the sled. Should that arrow be there? Why or why not?",
+    "question_type": "Scenario-based",
+    "difficulty": "Medium",
+    "correct_answer": "No. Nothing pushes the sled forward; constant velocity means zero net force. Only weight and the normal force act (and they cancel).",
+    "why_this_tests_the_misconception": "Tests whether the student rejects a force arrow tied to the direction of motion in a free-body diagram."
+  },
+  {
+    "reassessment_id": "R-M1-04",
+    "misconception_id": "M1",
+    "question": "A 3 kg trolley moves at a constant 2 m/s on a frictionless track. (a) What is the net horizontal force on it? (b) A 6 N forward force then acts on it for 1 s. What is its speed afterwards?",
+    "question_type": "Numerical",
+    "difficulty": "Medium",
+    "correct_answer": "(a) 0 N. (b) a = 6 / 3 = 2 m/s², so the speed becomes 2 + 2 x 1 = 4 m/s.",
+    "why_this_tests_the_misconception": "Separates 'force from acceleration' (a = 0 means F = 0) from the 'F = mv' version of M1, and shows force changes velocity."
+  },
+  {
+    "reassessment_id": "R-M1-05",
+    "misconception_id": "M1",
+    "question": "A truck travels at 20 m/s on a level road. The engine force is 2500 N and the total resistance is 2500 N. The driver raises the engine force to 3000 N (resistance stays 2500 N for now). Describe the truck's motion before and after the change.",
+    "question_type": "Reasoning/Explanation",
+    "difficulty": "Hard",
+    "correct_answer": "Before: net force 0, so constant 20 m/s. After: net force 500 N forward, so it accelerates (a = 500 / mass). In practice air drag grows with speed until it reaches 3000 N, then the truck settles at a new, higher constant speed.",
+    "why_this_tests_the_misconception": "Tests the full picture: steady motion = balanced forces, and extra force causes acceleration rather than 'motion'."
+  },
+  {
+    "reassessment_id": "R-M2-01",
+    "misconception_id": "M2",
+    "question": "Which of these objects could have zero net force? I. A ball resting on a table. II. A probe moving at a steady 5 m/s through deep space with nothing acting on it. (A) I only (B) II only (C) Both I and II (D) Neither",
+    "question_type": "Multiple-choice",
+    "difficulty": "Easy",
+    "correct_answer": "C",
+    "why_this_tests_the_misconception": "Forces the student to accept that a moving object can have zero net force."
+  },
+  {
+    "reassessment_id": "R-M2-02",
+    "misconception_id": "M2",
+    "question": "A runner jogs at a steady 3 m/s in a straight line along flat ground. What is the net force on her, and what is her velocity?",
+    "question_type": "Short-answer",
+    "difficulty": "Medium",
+    "correct_answer": "Net force 0 N; her velocity is 3 m/s in the direction she runs.",
+    "why_this_tests_the_misconception": "Needs both parts: zero net force AND non-zero velocity. M2 students tend to link zero force with zero velocity."
+  },
+  {
+    "reassessment_id": "R-M2-03",
+    "misconception_id": "M2",
+    "question": "A 0.4 kg puck moves at 5 m/s along a table. A small fan blows on it with 0.2 N forward and friction pulls back with 0.2 N. How far does the puck travel in 3 s?",
+    "question_type": "Numerical",
+    "difficulty": "Medium",
+    "correct_answer": "Net force is 0 N, so it keeps moving at 5 m/s. Distance = 5 x 3 = 15 m.",
+    "why_this_tests_the_misconception": "A calculation in a new setting where an M2 student would answer 0 m."
+  },
+  {
+    "reassessment_id": "R-M2-04",
+    "misconception_id": "M2",
+    "question": "A box rides on a horizontal conveyor belt moving at a constant 0.5 m/s. The box does not slip. What is the net force on the box?",
+    "question_type": "Scenario-based",
+    "difficulty": "Hard",
+    "correct_answer": "0 N. Constant velocity means zero acceleration, so no net force. No horizontal force is needed; weight and the normal force cancel vertically.",
+    "why_this_tests_the_misconception": "Unfamiliar situation. 'It is not moving' hints at M2; 'there must be a forward force' hints at M1."
+  },
+  {
+    "reassessment_id": "R-M2-05",
+    "misconception_id": "M2",
+    "question": "Give two examples of objects with balanced forces: one at rest and one moving. State the velocity of each.",
+    "question_type": "Reasoning/Explanation",
+    "difficulty": "Hard",
+    "correct_answer": "Example: a book on a table (velocity 0) and a car on cruise control at a steady 25 m/s (velocity 25 m/s, constant).",
+    "why_this_tests_the_misconception": "The student must produce a moving example of balanced forces by themselves."
+  },
+  {
+    "reassessment_id": "R-M3-01",
+    "misconception_id": "M3",
+    "question": "A person kicks a soccer ball. Name the equal and opposite force pair and say which object each force acts on. Do these two forces cancel each other?",
+    "question_type": "Conceptual",
+    "difficulty": "Easy",
+    "correct_answer": "The foot pushes the ball (force acts on the ball); the ball pushes the foot (force acts on the foot). They are equal and opposite but do not cancel because they act on different objects.",
+    "why_this_tests_the_misconception": "Asks the student to name the object each force acts on, the key idea for M3."
+  },
+  {
+    "reassessment_id": "R-M3-02",
+    "misconception_id": "M3",
+    "question": "A 70 kg astronaut and a 210 kg satellite float at rest in space. The astronaut pushes the satellite with 35 N. Find each one's acceleration while the push lasts.",
+    "question_type": "Numerical",
+    "difficulty": "Medium",
+    "correct_answer": "Satellite: 35 / 210 = 0.17 m/s² away from the astronaut. Astronaut: 35 / 70 = 0.5 m/s² in the opposite direction.",
+    "why_this_tests_the_misconception": "If the forces cancelled, both accelerations would be zero. Different masses also show the forces are equal but accelerations are not."
+  },
+  {
+    "reassessment_id": "R-M3-03",
+    "misconception_id": "M3",
+    "question": "A swimmer pushes on the pool wall with 150 N to start a lap. What is the force of the wall on the swimmer? Does it cancel the swimmer's push on the wall? Explain.",
+    "question_type": "Conceptual",
+    "difficulty": "Medium",
+    "correct_answer": "150 N, directed away from the wall. It does not cancel the swimmer's push, because that push acts on the wall. The wall's force on the swimmer is what accelerates the swimmer.",
+    "why_this_tests_the_misconception": "A new real-life contact situation testing the 'different objects' idea."
+  },
+  {
+    "reassessment_id": "R-M3-04",
+    "misconception_id": "M3",
+    "question": "A 1000 kg car pulls a 500 kg trailer along a level road. Ignore resistance. The road pushes the car forward with a total force of 1500 N. Find the acceleration of the car and trailer, and the tension in the coupling.",
+    "question_type": "Numerical",
+    "difficulty": "Hard",
+    "correct_answer": "a = 1500 / 1500 = 1 m/s². Trailer: T = 500 x 1 = 500 N. (Check on the car: 1500 - 500 = 1000 x 1.) The tension pulls the trailer forward and the car backward; those act on different objects.",
+    "why_this_tests_the_misconception": "Multi-object problem: only works if forces are added object by object."
+  },
+  {
+    "reassessment_id": "R-M3-05",
+    "misconception_id": "M3",
+    "question": "A small fridge magnet clings to a large iron door. The magnet pulls on the door and the door pulls on the magnet with equal force. If you pull the magnet slightly away and release it, why does the magnet move toward the door while the door does not visibly move?",
+    "question_type": "Reasoning/Explanation",
+    "difficulty": "Medium",
+    "correct_answer": "The forces are equal and opposite but act on different objects. a = F / m, so the light magnet gets a large acceleration while the massive door (also held by its hinges) hardly moves.",
+    "why_this_tests_the_misconception": "Tests understanding that equal forces can give unequal motion, impossible if the forces cancelled."
+  },
+  {
+    "reassessment_id": "R-M4-01",
+    "misconception_id": "M4",
+    "question": "A coin and a lead pellet are released together at the top of a long vacuum tube. Which hits the bottom first?",
+    "question_type": "Short-answer",
+    "difficulty": "Easy",
+    "correct_answer": "They land at the same time. In a vacuum all objects fall with the same acceleration.",
+    "why_this_tests_the_misconception": "Direct transfer of the idea to a new setting."
+  },
+  {
+    "reassessment_id": "R-M4-02",
+    "misconception_id": "M4",
+    "question": "An airless drop tower is 19.6 m tall. A 0.2 kg tennis ball and a 20 kg boulder are released together from the top. How long does each take to reach the bottom? (g = 9.8 m/s²)",
+    "question_type": "Numerical",
+    "difficulty": "Medium",
+    "correct_answer": "Both take 2.0 s (t = sqrt(2h / g) = sqrt(2 x 19.6 / 9.8) = 2.0 s).",
+    "why_this_tests_the_misconception": "An M4 student would say the boulder arrives first."
+  },
+  {
+    "reassessment_id": "R-M4-03",
+    "misconception_id": "M4",
+    "question": "On Mars (g = 3.7 m/s²) a 5 kg rock and a 50 kg rock are dropped. Find the weight and the acceleration of each.",
+    "question_type": "Numerical",
+    "difficulty": "Medium",
+    "correct_answer": "Weights: 18.5 N and 185 N. Both accelerate at 3.7 m/s².",
+    "why_this_tests_the_misconception": "Different planet, same idea. Shows a bigger weight does not mean a bigger acceleration."
+  },
+  {
+    "reassessment_id": "R-M4-04",
+    "misconception_id": "M4",
+    "question": "A heavy bowling ball and a light foam ball of identical size are dropped from a tall building. The foam ball arrives noticeably later. Is the difference caused by mass itself or by air resistance? What would you expect in a vacuum?",
+    "question_type": "Reasoning/Explanation",
+    "difficulty": "Hard",
+    "correct_answer": "It is caused by air resistance: it is a much larger fraction of the foam ball's small weight. In a vacuum both would land together.",
+    "why_this_tests_the_misconception": "Checks the student can separate air resistance from mass in a real-life case."
+  },
+  {
+    "reassessment_id": "R-M4-05",
+    "misconception_id": "M4",
+    "question": "A 2 kg block and a 6 kg block are joined by a slack string and dropped together (ignore air resistance). Does the string become tight? Explain.",
+    "question_type": "Scenario-based",
+    "difficulty": "Hard",
+    "correct_answer": "No. Both accelerate at g, so the string stays slack and carries no tension; they fall together.",
+    "why_this_tests_the_misconception": "Novel application that only works if all masses fall with the same acceleration."
+  },
+  {
+    "reassessment_id": "R-M5-01",
+    "misconception_id": "M5",
+    "question": "A student writes 'net force = 4 m/s²'. What is wrong? (A) Nothing. (B) m/s² is a unit of acceleration; force is measured in newtons. (C) The number should be bigger. (D) Force can only be measured in kg.",
+    "question_type": "Multiple-choice",
+    "difficulty": "Easy",
+    "correct_answer": "B",
+    "why_this_tests_the_misconception": "Direct check that the student separates the units of force and acceleration."
+  },
+  {
+    "reassessment_id": "R-M5-02",
+    "misconception_id": "M5",
+    "question": "A cyclist and bike with total mass 60 kg accelerate at 1.5 m/s². What is the net force?",
+    "question_type": "Numerical",
+    "difficulty": "Medium",
+    "correct_answer": "90 N (F = ma = 60 x 1.5).",
+    "why_this_tests_the_misconception": "An M5 student gives 1.5 N (acceleration reused as force)."
+  },
+  {
+    "reassessment_id": "R-M5-03",
+    "misconception_id": "M5",
+    "question": "Two shopping carts are each pushed with the same net force of 30 N. Cart A accelerates at 3 m/s² and cart B at 0.5 m/s². Find the mass of each cart.",
+    "question_type": "Numerical",
+    "difficulty": "Medium",
+    "correct_answer": "Cart A: 30 / 3 = 10 kg. Cart B: 30 / 0.5 = 60 kg.",
+    "why_this_tests_the_misconception": "An inverse problem: the same force with different accelerations only makes sense if the masses differ. A student who thinks force and acceleration are the same thing struggles to use m = F / a."
+  },
+  {
+    "reassessment_id": "R-M5-04",
+    "misconception_id": "M5",
+    "question": "A 500 kg rocket has an upward thrust of 7000 N. Its weight is 4900 N (g = 9.8 m/s²). Find the net force and the acceleration. Which of thrust, weight and acceleration are forces?",
+    "question_type": "Numerical",
+    "difficulty": "Hard",
+    "correct_answer": "Net force = 7000 - 4900 = 2100 N upward. a = 2100 / 500 = 4.2 m/s². Thrust and weight are forces; acceleration is not.",
+    "why_this_tests_the_misconception": "Needs both the calculation and the statement that acceleration is not a force."
+  },
+  {
+    "reassessment_id": "R-M5-05",
+    "misconception_id": "M5",
+    "question": "The same 90 N push is applied to a 3 kg skateboard and a 3000 kg truck. Find both accelerations and say what this shows about force and acceleration.",
+    "question_type": "Reasoning/Explanation",
+    "difficulty": "Medium",
+    "correct_answer": "Skateboard: 90 / 3 = 30 m/s². Truck: 90 / 3000 = 0.03 m/s². The same force gives very different accelerations, so force is not the same as acceleration; mass links them.",
+    "why_this_tests_the_misconception": "Dramatic contrast makes it hard to keep believing the two are the same thing."
+  },
+  {
+    "reassessment_id": "R-M4-06",
+    "misconception_id": "M4",
+    "question": "A steel ball and a wooden ball are dropped at the same time inside a vacuum chamber. Which ball reaches the bottom first? Explain why.",
+    "question_type": "Reasoning/Explanation",
+    "difficulty": "Easy",
+    "correct_answer": "Both balls reach the bottom at the same time. In a vacuum with no air resistance, gravity gives all objects the same downward acceleration regardless of their mass.",
+    "why_this_tests_the_misconception": "Direct transfer comparing a heavy and light ball in an ideal vacuum without air resistance."
+  }
+]
