@@ -50,8 +50,11 @@ models/*
 data/*
 !data/.gitkeep
 !data/README.md
+!data/*.json
+data/learner_history.json
 *.csv
 !tests/fixtures/*.csv
+!data/*.csv
 *.tsv
 *.parquet
 *.feather
@@ -74,3 +77,9 @@ htmlcov/
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+
+# Node / Frontend
+frontend/node_modules/
+frontend/dist/
+node_modules/
+dist/

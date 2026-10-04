@@ -1,0 +1,264 @@
+[
+  {
+    "question_id": "DF-M1-M2",
+    "physics_concept": "Newton's First Law: Constant Velocity vs Rest under Zero Net Force",
+    "candidate_misconceptions": ["M1", "M2"],
+    "candidate_labels": ["impetus_force_persistence", "zero_net_force_zero_velocity"],
+    "scenario_title": "Deep Space Probe with Engines Off",
+    "question": "A space probe drifts through deep space at a constant 8,000 m/s with all its engines shut down. Gravity and drag are virtually zero. Which statement best explains its ongoing state?",
+    "choices": [
+      {
+        "choice_id": "A",
+        "text": "The probe must fire its engines continuously; without a constant forward force pushing it, the motion will run out and it will stop.",
+        "supported_misconception_id": "M1",
+        "supported_misconception_label": "impetus_force_persistence",
+        "evidence_type": "strong_support",
+        "diagnostic_interpretation": "Demonstrates the impetus fallacy (M1): believes an active force is required to sustain ongoing motion."
+      },
+      {
+        "choice_id": "B",
+        "text": "Because the net force on the probe is zero, its velocity must be zero, so it cannot actually be traveling at 8,000 m/s.",
+        "supported_misconception_id": "M2",
+        "supported_misconception_label": "zero_net_force_zero_velocity",
+        "evidence_type": "strong_support",
+        "diagnostic_interpretation": "Demonstrates zero net force confusion (M2): equates balanced forces with zero velocity rather than zero acceleration."
+      },
+      {
+        "choice_id": "C",
+        "text": "With zero net force, its acceleration is zero, meaning its velocity stays constant at 8,000 m/s indefinitely due to inertia.",
+        "supported_misconception_id": "NONE",
+        "supported_misconception_label": "no_misconception_detected",
+        "evidence_type": "canonical_reasoning",
+        "diagnostic_interpretation": "Demonstrates canonical understanding of Newton's First Law: net force F_net = 0 implies constant velocity."
+      },
+      {
+        "choice_id": "D",
+        "text": "It slows down gradually even with no forces, but I am not certain why.",
+        "supported_misconception_id": "INCONCLUSIVE",
+        "supported_misconception_label": "inconclusive",
+        "evidence_type": "ambiguous",
+        "diagnostic_interpretation": "Indicates hesitation and uncertainty without committing to a specific conceptual model."
+      }
+    ],
+    "correct_choice_id": "C",
+    "expected_reasoning": "According to Newton's First Law, an object in motion continues at constant velocity unless acted upon by a net external force. Zero net force produces zero acceleration (a = 0), allowing ongoing uniform motion.",
+    "post_answer_explanation": "Newton's First Law clarifies both dilemmas: a net force is needed to CHANGE velocity, not to MAINTAIN it (ruling out M1), and zero net force means constant velocity, not zero velocity (ruling out M2)."
+  },
+  {
+    "question_id": "DF-M1-NONE",
+    "physics_concept": "Inertia vs Impetus on Frictionless Surfaces",
+    "candidate_misconceptions": ["M1", "NONE"],
+    "candidate_labels": ["impetus_force_persistence", "no_misconception_detected"],
+    "scenario_title": "Curling Stone Gliding on Frictionless Ice",
+    "question": "A curling stone is pushed across frictionless ice and released. After the player's hands leave the stone, what horizontal forces act on it as it glides forward at constant speed?",
+    "choices": [
+      {
+        "choice_id": "A",
+        "text": "A forward 'force of the throw' remains stored inside the stone, actively pushing it along the ice.",
+        "supported_misconception_id": "M1",
+        "supported_misconception_label": "impetus_force_persistence",
+        "evidence_type": "strong_support",
+        "diagnostic_interpretation": "Demonstrates impetus persistence (M1): attributing continuing velocity to a 'stored force' carried inside the object."
+      },
+      {
+        "choice_id": "B",
+        "text": "No horizontal forces act on the stone at all; it keeps moving forward purely because of inertia.",
+        "supported_misconception_id": "NONE",
+        "supported_misconception_label": "no_misconception_detected",
+        "evidence_type": "canonical_reasoning",
+        "diagnostic_interpretation": "Demonstrates canonical understanding: inertia is an innate property of mass, not an applied force."
+      },
+      {
+        "choice_id": "C",
+        "text": "A forward velocity force balances a small backward resistance force.",
+        "supported_misconception_id": "M1",
+        "supported_misconception_label": "impetus_force_persistence",
+        "evidence_type": "moderate_support",
+        "diagnostic_interpretation": "Inventing a forward force to explain motion despite frictionless conditions."
+      },
+      {
+        "choice_id": "D",
+        "text": "I am not sure whether inertia is counted as a force or not.",
+        "supported_misconception_id": "INCONCLUSIVE",
+        "supported_misconception_label": "inconclusive",
+        "evidence_type": "ambiguous",
+        "diagnostic_interpretation": "Expresses conceptual doubt regarding force vs mass inertia."
+      }
+    ],
+    "correct_choice_id": "B",
+    "expected_reasoning": "Once physical contact ceases, no forward force exists. Inertia keeps the stone moving in a straight line at constant speed without any driving force.",
+    "post_answer_explanation": "Inertia is the tendency of matter to resist changes in velocity; it is not a force. No forward force is stored in or acting on the stone after release."
+  },
+  {
+    "question_id": "DF-M3-M5",
+    "physics_concept": "Newton's Third Law (Interaction Pairs) vs Second Law (F = ma)",
+    "candidate_misconceptions": ["M3", "M5"],
+    "candidate_labels": ["action_reaction_same_object", "force_acceleration_conflation"],
+    "scenario_title": "Heavy Truck Colliding with Small Car",
+    "question": "A massive 3,000 kg truck collides head-on with a 1,000 kg compact car. Which statement correctly analyzes the impact forces and accelerations experienced during contact?",
+    "choices": [
+      {
+        "choice_id": "A",
+        "text": "The truck exerts an equal force on the car as the car exerts on the truck, but because they are equal and opposite, the forces cancel out so neither vehicle accelerates.",
+        "supported_misconception_id": "M3",
+        "supported_misconception_label": "action_reaction_same_object",
+        "evidence_type": "strong_support",
+        "diagnostic_interpretation": "Demonstrates action-reaction cancellation error (M3): treating forces on different bodies as cancelling each other."
+      },
+      {
+        "choice_id": "B",
+        "text": "The truck exerts a much larger impact force than the car because larger objects naturally possess and generate greater force.",
+        "supported_misconception_id": "M5",
+        "supported_misconception_label": "force_acceleration_conflation",
+        "evidence_type": "strong_support",
+        "diagnostic_interpretation": "Demonstrates force-mass/acceleration conflation (M5): confusing unequal damage/acceleration with unequal contact forces."
+      },
+      {
+        "choice_id": "C",
+        "text": "The contact forces are identical in magnitude (Newton's 3rd Law), but the car experiences 3 times the acceleration because its mass is 3 times smaller (a = F/m).",
+        "supported_misconception_id": "NONE",
+        "supported_misconception_label": "no_misconception_detected",
+        "evidence_type": "canonical_reasoning",
+        "diagnostic_interpretation": "Demonstrates correct separation of Newton's 3rd Law (equal interaction forces) and Newton's 2nd Law (unequal accelerations due to mass)."
+      },
+      {
+        "choice_id": "D",
+        "text": "The forces and accelerations must both be equal because the collision is shared equally.",
+        "supported_misconception_id": "M5",
+        "supported_misconception_label": "force_acceleration_conflation",
+        "evidence_type": "moderate_support",
+        "diagnostic_interpretation": "Conflates force equality with acceleration equality, ignoring the role of mass."
+      }
+    ],
+    "correct_choice_id": "C",
+    "expected_reasoning": "By Newton's Third Law, F_truck_on_car = -F_car_on_truck. By Newton's Second Law, a = F/m, so the 1,000 kg car undergoes 3x greater acceleration than the 3,000 kg truck despite feeling the exact same force magnitude.",
+    "post_answer_explanation": "Action-reaction pairs act on different bodies and therefore never cancel each other (refuting M3). Equal forces acting on unequal masses produce unequal accelerations (refuting M5)."
+  },
+  {
+    "question_id": "DF-M4-NONE",
+    "physics_concept": "Gravitational Acceleration in Vacuum vs Weight",
+    "candidate_misconceptions": ["M4", "NONE"],
+    "candidate_labels": ["heavier_objects_fall_faster", "no_misconception_detected"],
+    "scenario_title": "Heavy and Light Spheres in a Vacuum Tube",
+    "question": "A 10 kg solid iron bowling ball and a 0.05 kg plastic golf ball are dropped simultaneously inside a tall vacuum chamber where all air has been evacuated. Which lands first, and why?",
+    "choices": [
+      {
+        "choice_id": "A",
+        "text": "The 10 kg bowling ball lands first because Earth's gravitational pull (weight) on it is 200 times stronger.",
+        "supported_misconception_id": "M4",
+        "supported_misconception_label": "heavier_objects_fall_faster",
+        "evidence_type": "strong_support",
+        "diagnostic_interpretation": "Demonstrates heavier-falls-faster fallacy (M4): considering only gravitational force while overlooking gravitational inertia."
+      },
+      {
+        "choice_id": "B",
+        "text": "Both land at the exact same instant because acceleration a = F_gravity / m = (mg) / m = g, which is identical for all masses in a vacuum.",
+        "supported_misconception_id": "NONE",
+        "supported_misconception_label": "no_misconception_detected",
+        "evidence_type": "canonical_reasoning",
+        "diagnostic_interpretation": "Demonstrates canonical understanding: the greater force on the heavier object is exactly matched by its greater resistance to acceleration."
+      },
+      {
+        "choice_id": "C",
+        "text": "The lighter ball lands first because lighter objects offer less air resistance.",
+        "supported_misconception_id": "INCONCLUSIVE",
+        "supported_misconception_label": "inconclusive",
+        "evidence_type": "ambiguous",
+        "diagnostic_interpretation": "Overlooked the vacuum condition specified in the problem prompt."
+      }
+    ],
+    "correct_choice_id": "B",
+    "expected_reasoning": "In a vacuum, weight is W = mg. Acceleration is a = W / m = g. The mass cancels out, yielding an identical acceleration of 9.8 m/s² for all falling bodies.",
+    "post_answer_explanation": "While Earth pulls harder on the 10 kg ball, the 10 kg ball also has 200 times the inertia (resistance to being accelerated). These two factors balance precisely, making both fall at the exact same rate g."
+  },
+  {
+    "question_id": "DF-M2-NONE",
+    "physics_concept": "Terminal Velocity & Balanced Forces on Moving Objects",
+    "candidate_misconceptions": ["M2", "NONE"],
+    "candidate_labels": ["zero_net_force_zero_velocity", "no_misconception_detected"],
+    "scenario_title": "Parachutist at Terminal Speed",
+    "question": "A skydiver deploys a parachute and reaches terminal velocity, falling straight down at a constant 15 m/s. At this point, the upward air drag equals downward gravity (F_net = 0 N). What is her state of motion?",
+    "choices": [
+      {
+        "choice_id": "A",
+        "text": "Because the forces are balanced (net force = 0 N), she must stop falling and hover stationary in mid-air.",
+        "supported_misconception_id": "M2",
+        "supported_misconception_label": "zero_net_force_zero_velocity",
+        "evidence_type": "strong_support",
+        "diagnostic_interpretation": "Demonstrates zero net force fallacy (M2): belief that balanced forces require velocity to be zero."
+      },
+      {
+        "choice_id": "B",
+        "text": "She continues falling downward at a steady 15 m/s because zero net force means zero acceleration, keeping velocity constant.",
+        "supported_misconception_id": "NONE",
+        "supported_misconception_label": "no_misconception_detected",
+        "evidence_type": "canonical_reasoning",
+        "diagnostic_interpretation": "Demonstrates canonical understanding: zero net force means no change in velocity (steady descent)."
+      },
+      {
+        "choice_id": "C",
+        "text": "She begins accelerating upward because the parachute force was the last force applied.",
+        "supported_misconception_id": "M5",
+        "supported_misconception_label": "force_acceleration_conflation",
+        "evidence_type": "moderate_support",
+        "diagnostic_interpretation": "Misinterprets force balance as upward acceleration."
+      },
+      {
+        "choice_id": "D",
+        "text": "I am unsure whether an object with balanced forces can keep moving downwards.",
+        "supported_misconception_id": "INCONCLUSIVE",
+        "supported_misconception_label": "inconclusive",
+        "evidence_type": "ambiguous",
+        "diagnostic_interpretation": "Shows uncertainty regarding balanced forces on descending objects."
+      }
+    ],
+    "correct_choice_id": "B",
+    "expected_reasoning": "When upward drag equals downward weight, F_net = 0. According to Newton's First and Second Laws, a = 0, so the velocity remains constant at 15 m/s.",
+    "post_answer_explanation": "Balanced forces do not halt an already-moving object; they prevent any CHANGE in its velocity. Terminal velocity is a classic demonstration of constant motion with zero net force."
+  },
+  {
+    "question_id": "DF-M1-M5",
+    "physics_concept": "Net Force as Cause of Acceleration vs Sustainer of Velocity",
+    "candidate_misconceptions": ["M1", "M5"],
+    "candidate_labels": ["impetus_force_persistence", "force_acceleration_conflation"],
+    "scenario_title": "Constant Horizontal Force on a Frictionless Cart",
+    "question": "A continuous, unchanging forward net force of 20 N is applied to a 10 kg cart on a frictionless horizontal track. How does the cart move while this 20 N force acts?",
+    "choices": [
+      {
+        "choice_id": "A",
+        "text": "The cart moves forward at a constant steady speed of 2 m/s because a 20 N force maintains a constant velocity.",
+        "supported_misconception_id": "M1",
+        "supported_misconception_label": "impetus_force_persistence",
+        "evidence_type": "strong_support",
+        "diagnostic_interpretation": "Demonstrates impetus belief (M1): treating force as proportional to velocity rather than acceleration."
+      },
+      {
+        "choice_id": "B",
+        "text": "The cart continuously speeds up with a constant acceleration of 2 m/s² (a = F/m = 20 / 10).",
+        "supported_misconception_id": "NONE",
+        "supported_misconception_label": "no_misconception_detected",
+        "evidence_type": "canonical_reasoning",
+        "diagnostic_interpretation": "Demonstrates canonical understanding: a constant net force produces a steady rate of velocity change (acceleration)."
+      },
+      {
+        "choice_id": "C",
+        "text": "The cart has an acceleration of 20 N because force and acceleration are interchangeable quantities.",
+        "supported_misconception_id": "M5",
+        "supported_misconception_label": "force_acceleration_conflation",
+        "evidence_type": "strong_support",
+        "diagnostic_interpretation": "Demonstrates force-acceleration conflation (M5): mixing units and equating force directly with acceleration."
+      },
+      {
+        "choice_id": "D",
+        "text": "The cart will move, but it is impossible to predict without knowing its top speed.",
+        "supported_misconception_id": "INCONCLUSIVE",
+        "supported_misconception_label": "inconclusive",
+        "evidence_type": "ambiguous",
+        "diagnostic_interpretation": "Uncertainty regarding basic kinematic relationships under constant force."
+      }
+    ],
+    "correct_choice_id": "B",
+    "expected_reasoning": "By Newton's Second Law, F_net = m * a. A constant net force of 20 N on a 10 kg mass causes a constant acceleration of a = 20/10 = 2 m/s², meaning velocity increases by 2 m/s every second.",
+    "post_answer_explanation": "A steady net force does NOT maintain a steady speed (refuting M1); it causes a continuous increase in speed. Furthermore, force in newtons is the cause, and acceleration in m/s² is the effect (refuting M5)."
+  }
+]
